@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Library index{% endblock %}
+
+{% block body %}
+    <h1>Library index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Description</th>
+                <th>Picture</th>
+                <th>Capacity</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>URL</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for library in libraries %}
+            <tr>
+                <td>{{ library.id }}</td>
+                <td>{{ library.name }}</td>
+                <td>{{ library.date ? library.date|date('d-m-Y') : '' }}</td>
+                <td>{{ library.time ? library.time|date('H:i') : '' }}</td>
+                <td>{{ library.description }}</td>
+                <td><img src="{{ asset('pictures/' ~ library.picture) }}" alt="" width="100%"></td>
+                <td>{{ library.capacity }}</td>
+                <td>{{ library.contactEmail }}</td>
+                <td>{{ library.contactPhone }}</td>
+                <td>{{ library.address }}</td>
+                <td>{{ library.URL }}</td>
+                <td>
+                    <a href="{{ path('app_todo_show', {'id': library.id}) }}" class="btn btn-primary" style="width:70px">Show</a>
+                    <a href="{{ path('app_todo_edit', {'id': library.id}) }}" class="btn btn-warning" style="width:70px">Edit</a>
+                    <a href="{{ path('app_todo_delete', {'id': library.id}) }}" class="btn btn-danger" style="width:70px">Delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_todo_new') }}" class="btn btn-success" style="width:140px">Create Event</a>
+{% endblock %}
