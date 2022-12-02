@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col card" style="width: 24rem;">
+            <div class="card-body">
+                <img src="{{ asset('pictures/' ~ actions.picture) }}" alt="" width="100%">
+                <h5 class="card-title">{{ actions.name }}</h5>
+                <a href="/index" class="btn btn-primary">Back</a>
+                <a href="/edit/{{ actions.id }}" class="btn btn-warning">Edit</a>
+                <a href="/delete/{{ actions.id }}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+  
+    </div>
+</div>
+{% endblock %}

@@ -26,4 +26,25 @@ class ActionsController extends AbstractController
             "actions" => $actions
         ]);
     }
+
+    #[Route('/details/{id}', name: 'details-actions')]
+    public function detailsAction($id, ManagerRegistry $doctrine): Response
+    {
+        $actions = $doctrine->getRepository(Library::class)->find($id);
+        
+        return $this->render('actions/details.html.twig', [
+            "actions" => $actions
+        ]);
+    }
+
+    #[Route('/delete/{id}', name: 'delete-actions')]
+    public function deleteAction($id, ManagerRegistry $doctrine): Response
+    {
+        $em = $doctrine->getManager();
+        $actions = $doctrine->getRepository(Library::class)->find($id);
+        $em->remove($actions);
+        $em->flush(); 
+
+        return $this->redirectToRoute("index");
+    }
 }
