@@ -8,9 +8,11 @@
             <div class="card-body">
                 <img src="{{ asset('pictures/' ~ action.picture) }}" alt="" width="100%">
                 <h5 class="card-title">{{ action.name }}</h5>
-                <a href="/details/{{ action.id }}" class="btn btn-primary">Details</a>
-                <a href="/edit/{{ action.id }}" class="btn btn-warning">Edit</a>
-                <a href="/delete/{{ action.id }}" class="btn btn-danger">Delete</a>
+                <a href="/details/{{ action.id }}" class="btn btn-primary btn-sm" style="float: right">Details</a>
+                {# <div class="floatRight" style="float: right;">
+                    <a href="/edit/{{ action.id }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="/delete/{{ action.id }}" class="btn btn-danger btn-sm">Delete</a>
+                </div> #}
             </div>
         </div>
         {% endfor %}

@@ -1,5 +1,14 @@
-{% extends "base.html.twig" %} {% block body %}
-<h1>Add Entry</h1>
+{% extends "base.html.twig" %}
 
-{{ form_start(form) }} {{ form_widget(form) }} {{ form_end(form) }} 
+{% block body %}
+
+<div class="card mt-5" style="width: 50rem; margin: 0 auto">
+    <h1 class="text-center mt-3 mb-2">Create Event</h1>
+    <div class="" style="width: 100%; padding: 20px">
+        {{ form_start(form) }} 
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+</div>
+
 {% endblock %}

@@ -168,4 +168,16 @@ class Library
 
         return $this;
     }
+
+    public function getCreateDate(): ?\DateTimeInterface
+    {
+        return $this->create_date;
+    }
+
+    public function setCreateDate(\DateTimeInterface $create_date): self
+    {
+        $this->create_date = $create_date;
+
+        return $this;
+    }
 }

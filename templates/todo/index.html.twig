@@ -39,7 +39,7 @@
                 <td>
                     <a href="{{ path('app_todo_show', {'id': library.id}) }}" class="btn btn-primary" style="width:70px">Show</a>
                     <a href="{{ path('app_todo_edit', {'id': library.id}) }}" class="btn btn-warning" style="width:70px">Edit</a>
-                    <a href="{{ path('app_todo_delete', {'id': library.id}) }}" class="btn btn-danger" style="width:70px">Delete</a>
+                    {{ include('todo/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
