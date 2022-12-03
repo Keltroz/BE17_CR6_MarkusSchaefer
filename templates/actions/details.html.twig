@@ -1,20 +1,94 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+
 <div class="container">
-    <div class="row mt-5">
-        <div class="col card" style="width: 24rem;">
-            <div class="card-body">
-                <img src="{{ asset('pictures/' ~ actions.picture) }}" alt="" width="100%">
-                <h5 class="card-title">{{ actions.name }}</h5>
-                <a href="/index" class="btn btn-primary">Back</a>
-                <div class="test" style="float: right;">
-                    <a href="/edit/{{ actions.id }}" class="btn btn-warning me-1">Edit</a>
-                    <a href="/delete/{{ actions.id }}" class="btn btn-danger ms-1">Delete</a>
-                </div>
+    <div class="card mt-5 p-4">
+      <div class="row">
+        <div class="col-6">
+            <h5 class="card-title text-center fs-4">{{ actions.name }}</h5>
+            <div class="row">
+                <table class="ms-4 mt-5">
+                    <tr>
+                        <th>
+                            <p>Time:</p>
+                        </th>
+                        <td>
+                            <p>{{ actions.time | date("G:i")}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>date:</p>
+                        </th>
+                        <td>
+                            <p>{{ actions.date | date("D d.m.Y")}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>Address:</p>
+                        </th>
+                        <td>
+                            <p>{{ actions.address }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>Capacity:</p>
+                        </th>
+                        <td>
+                            <p>{{ actions.capacity}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>Phone:</p>
+                        </th>
+                        <td>
+                            <p>{{ actions.contactPhone }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>Email:</p>
+                        </th>
+                        <td>
+                            <p>{{ actions.contactEmail }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p>URL:</p>
+                        </th>
+                        <td>
+                            <p>{{ actions.url }}</p>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-  
+        <div class="col-6">
+            <img
+            src="{{ asset('pictures/' ~ actions.picture) }}"
+            alt=""
+            width="100%"
+            />
+        </div>
     </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <p class="mb-5 ms-2">{{ actions.description }}</p>
+            <a onClick="history.back()" class="btn btn-primary ms-1" style="width: 70px;">Back</a>
+            <div class="test" style="float:right">
+                <a href="/edit/{{ actions.id }}" class="btn btn-warning me-1" style="width: 70px;">Edit</a>
+                <a href="/delete/{{ actions.id }}" class="btn btn-danger ms-1" style="width: 80px;">Delete</a>    
+            </div>
+        </div>
+    </div>
+    
 </div>
+</div>
+</div>
+
 {% endblock %}

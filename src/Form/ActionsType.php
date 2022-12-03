@@ -35,9 +35,8 @@ class ActionsType extends AbstractType
             ->add('contact_email', TextType::class, ['label' => 'Email', "attr"=>["class"=>"form-control mb-3"]])
             ->add('url', TextType::class, ["attr"=>["class"=>"form-control mb-3"]])
             ->add('date', DateType::class, ['label' => 'Starts on:', "attr"=>["class"=>"mb-3"]])
-            ->add('time', TimeType::class, ['label' => 'At:', "attr"=>["class"=>"mb-5"]])
-            ->add('picture', FileType::class, [
-                // 'label' =>'Picture',
+            ->add('time', TimeType::class, ['label' => 'At:', "attr"=>["class"=>"mb-4"]])
+            ->add('picture', FileType::class, ['label' =>'Picture upload not working', "attr"=>["class"=>"ms-2 mb-5", "style"=>""],
 
                 // unmapped means that this field is not associated to any entity property
                 'mapped' => false,
@@ -58,7 +57,7 @@ class ActionsType extends AbstractType
                         ],
                         'mimeTypesMessage' => 'Please upload a valid picture document',
                     ])
-                ], "attr"=>["class"=>"ms-2 mb-4", "style"=>""]
+                ],
             ])
             ->add('Back', ButtonType::class, ["attr"=>[ "class"=>"btn btn-primary", "style"=>"width: 70px; float: left", "onClick"=>"window.history.back();"]])
             ->add('Ok', SubmitType::class, ["attr"=>[ "class"=>"btn btn-success", "style"=>"width: 70px; float: right"]]);

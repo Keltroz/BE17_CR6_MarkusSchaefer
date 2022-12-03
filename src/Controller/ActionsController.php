@@ -85,7 +85,7 @@ class ActionsController extends AbstractController
                 $actions->setPicture($newFilename);
             }
 
-            $actions->setCreateDate(new \DateTime('now'));
+            // $actions->setCreateDate(new \DateTime('now'));
 
             $em = $doctrine->getManager();
 
@@ -133,7 +133,7 @@ class ActionsController extends AbstractController
             // $form->getData() holds the submitted values
             // but, the original `$task` variable has also been updated
             $tactions = $form->getData();
-            $actions->setCreateDate(new \DateTime('now'));
+            // $actions->setCreateDate(new \DateTime('now'));
 
             $em = $doctrine->getManager();
 
